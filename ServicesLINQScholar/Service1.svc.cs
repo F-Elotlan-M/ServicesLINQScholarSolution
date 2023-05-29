@@ -36,6 +36,11 @@ namespace ServicesLINQScholar
             return composite;
         }
 
+        public Mensaje iniciarSesion2(string nombreUsuario, string password)
+        {
+            return AlumnoDAO.iniciarSesion2(nombreUsuario, password);
+        }
+
         public string GetData(int value)
         {
             throw new NotImplementedException();

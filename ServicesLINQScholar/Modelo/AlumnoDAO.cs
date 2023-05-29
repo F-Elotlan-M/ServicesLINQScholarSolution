@@ -87,7 +87,22 @@ namespace ServicesLINQScholar.Modelo
                 
             }
         }
-        
+
+        public static Mensaje iniciarSesion2(string nombreUsuario, string password)
+        {
+            try
+            {
+                DataClassesEscolarUVDataContext conexionBD = new DataClassesEscolarUVDataContext(global::System.Configuration.ConfigurationManager.ConnectionStrings["ConexionBDEscolarUV"].ConnectionString);
+                var usuario = (from usuarioQ in conexionBD.usuario where usuarioQ.username == nombreUsuario && usuarioQ.password == password select usuarioQ).FirstOrDefault();
+                return new Mensaje() { error = false, mensaje = "Usuario admitido.", usuarioLogin = usuario };
+            }
+            catch (Exception ex)
+            {
+                return new Mensaje() { error = true, mensaje = "Usuario no admitido.", usuarioLogin = null };
+            }
+
+        }
+
 
     }
 }

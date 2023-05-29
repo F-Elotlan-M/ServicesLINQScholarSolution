@@ -24,6 +24,8 @@ namespace ServicesLINQScholar
         Boolean EditarUsuario(usuario UsuarioEdicion);
         [OperationContract]
         Boolean EliminarUsuario(int idUsuario);
+        [OperationContract]
+        Mensaje iniciarSesion2(string nombreUsuario, string password);
         // TODO: agregue aquí sus operaciones de servicio
     }
 
